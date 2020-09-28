@@ -1,10 +1,13 @@
 <template>
   <div :class="classObj" class="app-wrapper">
     <left-menu class="left-menu" />
+
     <div class="main-container">
       <div class="fixed-header">
+      
         <head-nav />
         <tags-view />
+        
       </div>
       <div ref="menu_content" class="menu_content">
         <transition name="fade-transform" mode="out-in">

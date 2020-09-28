@@ -2,7 +2,7 @@
   <div class="menu_left">
     <div class="menu_page_top">
       <img class="logo" :src="logo">
-      <span class="span">赋强公证</span>
+      <span class="span">Api网关</span>
     </div>
     <sidebar class="sidebar-container" />
   </div>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/views/login/Login'
 import Home from '@/layout/home/home'
+
 import CompanyRegister from '@/views/register/CompanyRegister'
 import PersonRegister from '@/views/register/PersonRegister'
 import PlatformRegister from '@/views/register/PlatformRegister'
@@ -28,21 +29,77 @@ export const constantRouterMap = [
     name: 'platformRegister',
     component: PlatformRegister,
   },
+  // {
+  //   path: '/index',
+  //   name: 'index',
+  //   component: Home,
+  //   children: [
+  //     {
+  //       path: '/Index',
+  //       component: () => import('@/views/home/Index'),
+  //       name: 'Index',
+  //       meta: {
+  //         title: '系统首页',
+  //         icon: 'home',
+  //         affix: true
+  //       },
+
+//   path:'/CategoryDetail',
+//   component:()=>import ('../views/home/category/CategoryDetail'),
+//   name:'CategoryDetail',
+
+//   meta:{
+//     title:'详细信息'
+//   }
+//  },
+//  {
+//   path:'/CategoryManage',
+//   component:()=>import ('../views/home/category/CategoryManage'),
+//   name:'CategoryManage',
+//   meta:{
+//     title:'标签管理'
+//   }
+//  }
+        
+  //     }
+  //   ]
+  // },
   {
-    path: '/index',
-    name: 'index',
-    component: Home,
-    children: [
+    path:'/index',
+    component:Home,
+    name:'index',
+    children:[
+      // {
+      //   path: '/Index',
+      //   component: () => import('@/views/home/Index'),
+      //   name: 'Index',
+      //   meta: {
+      //     title: '系统首页',
+      //     icon: 'home',
+      //     affix: true
+      //   },
+      // }
       {
-        path: '/Index',
-        component: () => import('@/views/home/Index'),
-        name: 'Index',
-        meta: {
-          title: '系统首页',
-          icon: 'home',
-          affix: true
+        
+        path:'/CategoryDetail',
+        component:()=>import ('../views/home/category/CategoryDetail'),
+        name:'CategoryDetail',
+
+        meta:{
+          title:'详细信息'
+        }
+      },
+      {
+        path:'/CategoryManage',
+        component:()=>import ('../views/home/category/CategoryManage'),
+        name:'CategoryManage',
+        meta:{
+          title:'标签管理'
         }
       }
+
+
+      
     ]
   },
   {
