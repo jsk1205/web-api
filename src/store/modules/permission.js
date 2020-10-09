@@ -1,6 +1,5 @@
 import { constantRouterMap } from '@/router'
-import { Layout } from '@/layout/home'
-import Layout2 from '@/layout/home/secondContent'
+
 const _import = require('@/router/get_component')
 
 const state = {
