@@ -3,30 +3,34 @@
     
     <el-container>
     <el-header>
-        <!-- <img src="../../assets/logo.png" class="imgs" alt=""> -->
-        <span class="Tit"> API网关</span>
+        <div>
+            <!-- <img src="../../assets/logo.png" class="imgs" alt=""> -->
+            <span class="Tit"> API网关</span>
+        </div>
+        <el-button type="primary" @click="logout">退出</el-button>
     </el-header>
     <!-- 页面主题区域 -->
     <el-container>
         <!-- 侧边栏 -->
         <el-aside width="200px">
            <el-menu
-                default-active="1"
+                :default-active="activeMenu"
                 class="el-menu-vertical-demo"
-               
+                :unique-opened="true"
                 background-color="#fff"
                 text-color="#333744"
                 active-text-color="#409EFF"
+                router
                 >
-                <el-submenu index="1">
+                <el-submenu :index="route.path">
                     <!-- 一级菜单 -->
                     <template slot="title">
                     <i class="el-icon-location"></i>
                     <span>分组管理</span>
                     </template>
                     <!-- 二级菜单 -->
-                   <el-menu-item index="1-1">详细信息</el-menu-item>
-                   <el-menu-item index="1-2">标签管理</el-menu-item>
+                   <el-menu-item :index="route.path">详细信息</el-menu-item>
+                   <el-menu-item :index="route.path">标签管理</el-menu-item>
                 </el-submenu>
 
                 <el-menu-item index="2">
@@ -59,7 +63,27 @@
 
 <script>
 export default {
-  name: 'Home',
+    name: 'Home',
+    data(){
+      return{
+          
+      }
+    },
+    methods:{
+        logout(){
+            
+        }
+    },
+    computed:{
+        activeMenu(){
+            const route=this.$route
+            const {meta,path}=route
+            if(meta,this.activeMenu){
+                return meta.activeMenu
+            }
+            return path
+        }
+    }
 }
 </script>
 
@@ -76,7 +100,8 @@ export default {
     color: #333;
     height: 200px;
     display: flex;
-   
+    justify-content: space-between;
+    align-items: center;
 }
 // .imgs{
 //     display:block;
@@ -99,6 +124,9 @@ export default {
     line-height: 200px;
     height: calc(100%-200px);
     height: 100%;
+}
+.el-menu{
+    border-right:none;
 }
 .el-main {
     background-color: #E9EEF3;

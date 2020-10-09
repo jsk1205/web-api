@@ -2,23 +2,46 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from "@/views/home/Home"
-import HomeContain from '@/views/home/HomeContain'
+import Welcome from '@/components/Welcome'
+
+import Detail from '@/components/category/Detail'
+import Label from '@/components/category/Label'
+
 import PlatformRegister from '@/views/register/PlatformRegister'
 Vue.use(Router)
 
 export const constantRouterMap = [
+  // {
+  //   path:'/',
+  //   redirect: '/login',
+  //   name:Login,
+  //   component:Login,
+  
+  // },
   {
-    path:'/',
-    // redirect: '/index',
+    path:'/home',
     name:Home,
     component:Home,
-  
+    redirect: '/Welcome',
+    children:[
+      {
+        path:'/Welcome',
+        name:Welcome,
+        component:Welcome
+      },
+      {
+        path:'/Detail',
+        name:Detail,
+        component:Detail
+      },
+      {
+        path:'/Label',
+        name:Label,
+        component:Label
+      }
+    ]
   },
-  {
-    path:'/HomeContain',
-    name:HomeContain,
-    component:HomeContain
-  },
+
   {
     path:'/PlatformRegister',
     name:PlatformRegister,
